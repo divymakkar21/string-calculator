@@ -25,6 +25,10 @@ test('should throw an error for negative numbers', () => {
     expect(() => add("1,-2,3")).toThrow("Negative numbers not allowed: -2");
 });
 
+test('should throw an error for text', () => {
+  expect(() => add("test")).toThrow("Invalid input: test is not a number");
+});
+
 test('should list all negative numbers in the error message', () => {
     expect(() => add("1,-2,-3")).toThrow("Negative numbers not allowed: -2, -3");
 });

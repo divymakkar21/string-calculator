@@ -2,7 +2,12 @@
 function add(numbers) {
   if (!numbers) return 0;
 
-  const numArray = numbers.split(/,|\n/).map(Number);
+  // Split numbers by comma or newline and map them to numbers
+  const numArray = numbers.split(/,|\n/).map(item => {
+    const parsed = Number(item);
+    if (isNaN(parsed)) throw new Error(`Invalid input: ${item} is not a number`);
+    return parsed;
+});
   // Check for negative numbers
   const negatives = numArray.filter(n => n < 0);
   if (negatives.length) {
