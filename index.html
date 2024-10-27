@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Calculator</title>
+</head>
+<body>
+    <h1>String Calculator</h1>
+    <textarea  id="numberInput" placeholder="Enter numbers"></textarea>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+    <script src="stringCalculator.js"></script>
+    <script>
+        function calculate() {
+            const input = document.getElementById('numberInput').value;
+            console.log(input)
+            const resultElement = document.getElementById('result');
+
+            try {
+                const result = add(input);
+                resultElement.textContent = `Result: ${result}`;
+                resultElement.style.color = "black"; 
+            } catch (error) {
+                resultElement.textContent = error.message;
+                resultElement.style.color = "red"; 
+            }
+        }
+    </script>
+</body>
+</html>
